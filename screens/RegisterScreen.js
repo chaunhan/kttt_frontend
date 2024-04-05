@@ -31,7 +31,7 @@ const RegisterScreen = () => {
     };
 
     axios
-      .post("http://192.168.1.5:3000/api/user/register", user)
+      .post("http://172.16.28.230:3000/api/user/register", user)
       .then((req) => {
         console.log(req);
         Alert.alert("Đăng ký thành công");

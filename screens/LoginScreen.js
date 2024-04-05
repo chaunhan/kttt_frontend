@@ -41,7 +41,7 @@ const LoginScreen = () => {
     };
 
     axios
-      .post("http://192.168.1.5:3000/api/user/login", user)
+      .post("http://172.16.28.230:3000/api/user/login", user)
       .then((req) => {
         console.log(req);
         const token = req.data.token;
