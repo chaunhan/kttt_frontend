@@ -12,6 +12,8 @@ import ProfileScreen from "../screens/ProfileScreen";
 import CourseScreen from "../screens/CourseScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import CourseDetailScreen from "../screens/CourseDetailScreen";
+import LessionDetailScreen from "../screens/LessionDetailScreen";
 
 const StackNavigator = () => {
   const Stack = createNativeStackNavigator();
@@ -40,7 +42,6 @@ const StackNavigator = () => {
           options={{
             tabBarLabel: "Profile",
             tabBarLabelStyle: { color: "#308a5a" },
-            headerShown: false,
             tabBarIcon: ({ focused }) =>
               focused ? (
                 <Ionicons name="person-circle" size={24} color="#308a5a" />
@@ -55,7 +56,7 @@ const StackNavigator = () => {
         />
         <Tab.Screen
           name="Course"
-          component={CourseScreen}
+          component={CourseDetailScreen}
           options={{
             tabBarLabel: "Course",
             tabBarLabelStyle: { color: "#308a5a" },
@@ -95,6 +96,16 @@ const StackNavigator = () => {
         <Stack.Screen
           name="Main"
           component={BottomTab}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CourseDetail"
+          component={CourseDetailScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="LessionDetail"
+          component={LessionDetailScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

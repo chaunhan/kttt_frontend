@@ -20,20 +20,6 @@ const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [pass, setPassword] = useState("");
   const navigation = useNavigation();
-  useEffect(() => {
-    const checkLoginStatus = async () => {
-      try {
-        const token = await AsyncStorage.getItem("authToken");
-
-        if (token) {
-          navigation.replace("Main");
-        }
-      } catch (err) {
-        console.log("error mesage", err);
-      }
-    };
-    checkLoginStatus();
-  }, []);
   const handleLogin = () => {
     const user = {
       email: email,
@@ -43,9 +29,10 @@ const LoginScreen = () => {
     axios
       .post("http://192.168.1.5:3000/api/user/login", user)
       .then((req) => {
-        console.log(req);
+        console.log("data", req.data);
         const token = req.data.token;
         AsyncStorage.setItem("authToken", token);
+        AsyncStorage.setItem("user", req.data.data._id);
         navigation.replace("Main");
       })
       .catch((error) => {
