@@ -7,6 +7,8 @@ import {
   ScrollView,
   Pressable,
   Image,
+  Pressable,
+  Image,
 } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
